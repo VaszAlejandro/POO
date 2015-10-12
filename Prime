@@ -1,8 +1,10 @@
-int n=52; //enesimo termino
-int t=400;//tamaño de la serie
+  
+prime(int num,int tam){ //inicio constructor
+n = num;
+t = tam;
+p=0; } //Fin constructor
 
-int prime(int n,int t){ //inicio funcion
-int p; //Se declara variable
+int primos(){
 int a[]=new int [t+10];
 int b[]=new int [t+10];
 int i=4;
@@ -31,9 +33,9 @@ for (i=4;i<(t+10);i++){//Asignacion a un arreglo ordenado
 //q=b[n];
 }
 return b[n];}
-}
+}}
 
-
+prime p1 = new prime(50,400);//Llamado
 
 void setup(){
   size(400,400);
@@ -42,10 +44,11 @@ void setup(){
 }
 
 void draw(){
-  
+  int t=400;
+  int n=10;
   for(int i=20;i<t;i+=20){
     for(int j=20;j<t;j+=20){
-  fill(n,prime(n,t),j);
+  fill(n,p1.primos(),j);
   ellipse(i,j,15,15);}
   } }
 // j e i deben ser del tamaño del arreglo
