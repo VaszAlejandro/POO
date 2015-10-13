@@ -1,24 +1,28 @@
-
-int n= 5; //Enesimo termino de la serie
-
-int pad(int n){//Serie de Padovan
-int tm= 100; //tamaño de la serie
-int a[]=new int[tm];
-int p= 1;
-int s=1;
-int t=1;
-
-int e=0;
-                
-  for(int i=0;i<tm;i++){             
+class pad {
+  int n,t;
+  pad(int num,int tam){//Serie de Padovan
+    t= tam;
+    n=num;
+  }
+  
+  int padovan(){
+    int a[]=new int[t];
+    int p= 1;
+    int s=1;
+    int t=1;
+    int e=0;
+    for(int i=0;i<t;i++){             
         e = s+p;
         a[i]=p;
         p=s;//el primer termino ahora es el segundo
         s=t;//el segundo el tercero
         t=e;//y el tercero el siguiente
         
-} return a[n];}
-        
+} return a[n];}}
+
+pad p1 = new pad(5,100);
+pad p2 = new pad(10,100);
+
 void setup(){
   size(400,400);
   background(#000000);
@@ -28,11 +32,11 @@ void setup(){
 void draw(){
    if (keyPressed) {
     if (key == 'b' || key == 'B') {
-  rotate(0); for(int i=0;i<100;i++){
+       for(int i=0;i<100;i++){
     for(int j=0;j<100;j++){
-    fill(pad(i)*50,pad(j)*25,0);
+    fill(p2.padovan()*50,i*25,0);
   triangle(0+(j*50),0+(i*50),50+(j*50),0+(i*50),0+(j*50),50+(i*50));}}}}
 else{ for(int i=0;i<100;i++){
     for(int j=0;j<100;j++){
-    fill(pad(i)*25,0,pad(j)*50);
+    fill(j*50,0,p1.padovan()*50);
   triangle(0+(j*50),0+(i*50),50+(j*50),0+(i*50),0+(j*50),50+(i*50));}}}}
