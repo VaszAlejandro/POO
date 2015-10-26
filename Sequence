@@ -1,0 +1,72 @@
+// Super abstract class Sequence
+import java.util.Arrays;
+
+abstract class Sequence {
+  /**
+   * The sequence author
+   */
+  abstract String author();
+  
+  /**
+   * The sequence description
+   */
+  abstract String description();
+  
+  /**
+   * Computes the nth sequence term
+   */
+  abstract int compute(int n);
+  
+  /**
+   * Returns the first n seq terms as an array.
+   */
+  int [] toArray(int n) {
+    int[] seq = new int[n];
+    for (int i=0; i<n; i++)
+      seq[i] = compute(i+1);
+    return seq;
+  }
+  
+  /**
+   * Returns the first n seq terms as a string.
+   * Sequence may then simply be printed as: println(sequence.toString(n))
+   */
+  String toString(int n) {
+    return Arrays.toString(toArray(n));
+  }
+  
+  // All display functions must scale the canvas properly
+  
+  /**
+   * Display n seq terms as you wish
+   */
+  abstract void display(int n);
+   
+  /**
+   * Display n seq terms as a bar chart: https://en.wikipedia.org/wiki/Bar_chart
+   * Warning: Should be implemented here in the super class!
+   */
+  void barChart(int n) {
+    for(int i=0;i<n;i++){
+    quad(i*10,0, i*10, compute(i), (i+1)*10, compute(i),(i+1)*10, 0);
+    }
+  }
+  
+  void lineChart(int n) {
+    strokeWeight(5);
+    for(int i=1;i<(n+1);i++){
+    stroke(20*i,50,100);
+    line((i-1)*20, compute(i-1), i*20, compute(i));
+    }
+    
+  }
+  
+  void curveFitting(int n) {
+    noFill();
+    for(int i=0; i<n; i++){
+    
+    stroke(25*i,i*i,50); 
+    curve(0, 0, 10*compute(i), 5*compute(i),compute(i), 5*compute(i), 0, 0);
+    }
+  }
+}
