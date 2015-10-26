@@ -1,54 +1,55 @@
+public class Primes extends Sequence {
   
-prime(int num,int tam){ //inicio constructor
-n = num;
-t = tam;
-p=0; } //Fin constructor
+int n;
+int t;
+int p;
 
-int primos(){
-int a[]=new int [t+10];
-int b[]=new int [t+10];
-int i=4;
-int j=4;
-//int k=0;
-//int q;;//n posiscion
-{
-for (i=4;i<(t+10);i++){//Ciclo q genera los numeros del 1 al 100
-  p=i;
-  if(p%2==0 || p%3==0 || p%5==0){}else{//Condicion para la creacion de numeros primos
-  a[i]=p;};
-  
-}
-for (i=4;i<(t+10);i++){//Asignacion a un arreglo ordenado
-  if(a[i]!=0){
-  b[0]=1;
-  b[1]=2;
-  b[2]=3;
-  b[3]=5;
-  b[j]=a[i];
-  //print(b[k]);
-  //k++;
-  j++;
-  
+  Primes(int num){ 
+    n = num;
+    t = num;
+  } 
+
+  String author(){
+    return "Euclides";
   }
-//q=b[n];
+  
+  String description(){
+    return "This sequence is formed by the numbers that are disvisible only by 1 and themselves.";
+  }
+  
+  void display(int n){
+    for(int i=20;i<200;i+=20){
+      for(int j=20;j<200;j+=20){
+        fill(n,compute(n),j);
+        ellipse(i,j,15,15);
+      }  
+    }
+  }
+   
+
+  int compute(int n){
+    int a[]=new int [t+10];
+    int b[]=new int [t+10];
+    int i=4;
+    int j=4;
+    for (i=4;i<(t+10);i++){//Ciclo q genera los numeros del 1 al 100
+      p=i;
+      if(p%2==0 || p%3==0 || p%5==0){}else{//Condicion para la creacion de numeros primos
+        a[i]=p;
+      } 
+    }
+    
+    for (i=4;i<(t+10);i++){//Asignacion a un arreglo ordenado
+      if(a[i]!=0){
+        b[0]=1;
+        b[1]=2;
+        b[2]=3;
+        b[3]=5;
+        b[j]=a[i];
+        j++;
+      }
+    }
+  return b[n];
+  }
+  
 }
-return b[n];}
-}}
-
-prime p1 = new prime(50,400);//Llamado
-
-void setup(){
-  size(400,400);
-  background(#000000);
-  stroke(0);
-}
-
-void draw(){
-  int t=400;
-  int n=10;
-  for(int i=20;i<t;i+=20){
-    for(int j=20;j<t;j+=20){
-  fill(n,p1.primos(),j);
-  ellipse(i,j,15,15);}
-  } }
-// j e i deben ser del tamaño del arreglo
