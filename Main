@@ -1,0 +1,14 @@
+// Object declaration
+Sequence sequence;
+
+void setup() {
+  size(720,640);
+  // Object init
+  sequence = new Primes(200);
+}
+
+void draw() {
+  background(0);
+  //object use
+  sequence.barChart(50);
+}
