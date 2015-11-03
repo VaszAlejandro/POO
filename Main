@@ -1,14 +1,42 @@
 // Object declaration
-Sequence sequence;
+Sequence sequence1;
+Sequence sequence2;
+Sequence sequence3;
 
 void setup() {
-  size(720,640);
+  size(500,500);
   // Object init
-  sequence = new Primes(200);
+  sequence1 = new Primes(500);
+  sequence2 = new Lucas(500);
+  sequence3 = new Padovan(500);
 }
 
 void draw() {
   background(0);
-  //object use
-  sequence.barChart(50);
+    if (keyPressed) {
+      if (key == 'q' || key == 'Q') {
+        sequence1.barChart(30);}
+      if (key == 'w' || key == 'W') {
+        sequence2.barChart(30);}
+      if (key == 'e' || key == 'E') {
+        sequence3.barChart(30);}
+      if (key == 'r' || key == 'R') {
+        sequence1.lineChart(30);}
+      if (key == 't' || key == 'T') {
+        sequence2.lineChart(30);}
+      if (key == 'y' || key == 'Y') {
+        sequence3.lineChart(30);}
+      if (key == 'u' || key == 'U') {
+        sequence1.curveFitting(30);}
+      if (key == 'i' || key == 'I') {
+        sequence2.curveFitting(30);}
+      if (key == 'o' || key == 'O') {
+        sequence3.curveFitting(30);}
+      if (key == 'p' || key == 'P') {
+        sequence1.display(30);}
+      if (key == 'a' || key == 'A') {
+        sequence2.display(30);}
+      if (key == 's' || key == 'S') {
+        sequence3.display(30);}}
+       
 }
