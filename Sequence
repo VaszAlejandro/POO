@@ -47,30 +47,43 @@ abstract class Sequence {
    * Warning: Should be implemented here in the super class!
    */
   void barChart(int n) {
+    fill(#000000);
+    int j=n;
     translate(500,500);
     rotate(PI);
     for(int i=0;i<n;i++){
-    quad(i*10,0, i*10, compute(i), (i+1)*10, compute(i),(i+1)*10, 0);
+    quad(i*10,0, i*10, compute(j), (i+1)*10, compute(j),(i+1)*10, 0);
+    //quad(i*10,0, i*10, j, (i+1)*10, j,(i+1)*10, 0);
+    j--;
     }
   }
   
   void lineChart(int n) {
     translate(500,500);
+    int j=n;
     rotate(PI);
     strokeWeight(5);
     for(int i=1;i<(n+1);i++){
     stroke(20*i,50,100);
-    line((i-1)*20, compute(i-1), i*20, compute(i));
+    line((i-1)*20, compute(j), i*20, compute(j-1));
+    j--;
     }
     
   }
   
   void curveFitting(int n) {
-    noFill();
-    for(int i=0; i<n; i++){
     
-    stroke(25*i,i*i,50); 
-    curve(0, 0, 10*compute(i), 5*compute(i),compute(i), 5*compute(i), 0, 0);
+    translate(500,500);
+    int j=n;
+    rotate(PI);
+    strokeWeight(5);
+    for(int i=1;i<(n+1);i++){
+      noFill();
+      stroke(20*i,50,100);
+      line((i-1)*20, compute(j), i*20, compute(j-1));
+      fill(#666666);
+      ellipse((i-1)*20,compute(j),5,5);
+       j--;
     }
   }
 }
