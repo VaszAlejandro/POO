@@ -1,0 +1,41 @@
+public class Lucas extends Sequence {
+  
+int n,t;
+
+  Lucas(int num){
+    t=num;
+    n=num;
+  } 
+  
+  String author(){
+    return " François Édouard Anatole Lucas";
+  }
+
+  String description(){
+    return "This sequnce is formed by the numbers given by the formula P(n) = P(n-2) + P(n-1), where the first value is 2 and the second value is 1.";
+  }
+    
+  int compute(int n){
+    int a[]=new int[n];
+    int p=2;
+    int s=1;
+    //int t=1;
+    int e=0;
+    for(int i=0;i<n;i++){             
+        e = s+p;
+        a[i]=p;
+        p=s;
+        s=e;
+    } 
+  return p; 
+  }
+  
+  void display(int n) {
+    noFill();
+    for(int i=0; i<n; i++){
+    
+    stroke(25*i,i*i,50); 
+    curve(0, 0, 10*compute(i), 5*compute(i),compute(i), 5*compute(i), 0, 0);
+    }
+  }
+}
